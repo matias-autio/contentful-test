@@ -34,3 +34,17 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## How to
+
+### Install packages
+```sh
+# create-next-app provides the base app
+npx create-next-app@latest .
+# contentful to do contentful stuff
+npm install contentful
+# graphql-request for making graphql requests
+npm install graphql-request
+# to render rich text fields
+npm install --save @contentful/rich-text-react-renderer
+```

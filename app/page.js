@@ -1,4 +1,4 @@
-import { getFrontPage, getPageBySlug } from '../lib/api';
+import { getPageBySlug } from '../lib/api';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 export default async function Home() {
