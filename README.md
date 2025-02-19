@@ -47,4 +47,11 @@ npm install contentful
 npm install graphql-request
 # to render rich text fields
 npm install --save @contentful/rich-text-react-renderer
+# tailwind typography
+npm install -D @tailwindcss/typography
+```
+### Enable debugging
+Modify the dev script in package.json
+```sh
+"dev": "NODE_OPTIONS='--inspect' next dev --turbopack",
 ```
