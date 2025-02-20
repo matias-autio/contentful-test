@@ -16,7 +16,6 @@ export default async function Page({ params }) {
 
   return (
     <div>
-      <Header />
       <h1>{page.title}</h1>
       <article>{documentToReactComponents(page.richText.json)}</article>
     </div>

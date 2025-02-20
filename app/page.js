@@ -8,8 +8,6 @@ export default async function Home() {
 
   return (
     <div className="container mx-auto">
-      <Header />
-      <hr></hr>
       <main className='prose'>
         <h1>{frontPage.title}</h1>
       </main>
