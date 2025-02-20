@@ -1,13 +1,15 @@
 import Link from 'next/link';
 import { getNavigation } from '../lib/api';
 
-export default async function Navigation() {
-  const pages = await getNavigation();
+export default async function Navigation({ navigationId }) {
+  if (!navigationId) return null; // Prevent errors if no navigation is linked
+
+  const navigation = await getNavigation(navigationId);
 
   return (
     <nav className='bg-slate-300'>
       <ul className='flex gap-4'>
-        {pages.map((page) => (
+        {navigation.pages.map((page) => (
           <li key={page.slug}>
             <Link href={`/${page.slug}`}>{page.title}</Link>
           </li>
