@@ -1,4 +1,5 @@
-import { getHeader } from '../lib/api';
+import { getHeader } from '@/lib/api';
+import ImageComponent from '@/components/ImageComponent';
 import Navigation from './Navigation';
 
 export default async function Header() {
@@ -10,7 +11,7 @@ export default async function Header() {
 
   return (
     <header>
-      {header.logo && <img src={header.logo.url} alt="Logo" width={200} />}
+      <ImageComponent image={header.logo} />
       <h1 className='font-bold'>{header.title}</h1>
       <Navigation navigationId={header.navigationId} />
     </header>

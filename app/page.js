@@ -1,4 +1,4 @@
-import { getPageBySlug, getComponentsByIds } from '../lib/api';
+import { getPageBySlug, getComponentsByIds } from '@/lib/api';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Components from '@/components/Components';
 

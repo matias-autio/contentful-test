@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getNavigation } from '../lib/api';
+import { getNavigation } from '@/lib/api';
 
 export default async function Navigation({ navigationId }) {
   if (!navigationId) {
