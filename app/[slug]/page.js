@@ -2,6 +2,19 @@ import { getPageBySlug, getComponentsByIds } from '../../lib/api';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { notFound } from 'next/navigation';
 import Components from '@/components/Components';
+import getSiteSettings from '@/lib/getSiteSettings';
+
+export async function generateMetadata({ params }) {
+
+  const { slug } = await params;
+  const page = await getPageBySlug(slug);
+  const siteSettings = await getSiteSettings();
+
+  return {
+    title: `${page.title} - ${siteSettings.siteName}`,
+    description: page.description ? page.description : siteSettings.description,
+  }
+}
 
 export default async function Page({ params }) {
   const { slug } = await params;
