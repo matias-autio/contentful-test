@@ -8,7 +8,7 @@ export default async function Page({ params }) {
 
   // Fetch page data based on slug
   const page = await getPageBySlug(slug);
-  const componentIds = page.componentsCollection?.items.map(c => c.sys.id) || [];
+  const componentIds = page?.componentsCollection?.items.map(c => c.sys.id) || [];
   const components = await getComponentsByIds(componentIds);
 
   // Handle 404 if page doesn't exist
@@ -17,7 +17,7 @@ export default async function Page({ params }) {
   }
 
   return (
-    <div className="container mx-auto">
+    <div>
       <main className='prose'>
         <h1>{page.title}</h1>
       </main>
