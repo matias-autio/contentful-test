@@ -17,14 +17,16 @@ export default async function Page({ params }) {
   }
 
   return (
-    <div>
-      <main className='prose'>
-        <h1>{page.title}</h1>
-      </main>
-      <article className='prose bg-slate-100'>
-        {documentToReactComponents(page.richText.json)}
-        <Components components={components} />
-      </article>
+    <div className='container mx-auto'>
+      <div className='prose mx-auto bg-slate-100 p-8'>
+        <main>
+          <h1>{page.title}</h1>
+        </main>
+        <article>
+          {documentToReactComponents(page.richText.json)}
+          <Components components={components} />
+        </article>
+      </div>
     </div>
   );
 }

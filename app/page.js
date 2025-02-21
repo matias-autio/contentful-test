@@ -15,14 +15,16 @@ export default async function Home() {
   const components = await getComponentsByIds(componentIds);
 
   return (
-    <div>
-      <main className='prose'>
-        <h1>{frontPage.title}</h1>
-      </main>
-      <article className='prose bg-slate-100'>
-        {documentToReactComponents(frontPage.richText.json)}
-        <Components components={components} />
-      </article>
+    <div className='container mx-auto'>
+      <div className='prose mx-auto bg-slate-100 p-8'>
+        <main>
+          <h1>{frontPage.title}</h1>
+        </main>
+        <article>
+          {documentToReactComponents(frontPage.richText.json)}
+          <Components components={components} />
+        </article>
+      </div>
     </div>
   );
 }
