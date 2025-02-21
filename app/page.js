@@ -11,7 +11,7 @@ export async function generateMetadata() {
 
   return {
     title: `${frontPage.title} - ${siteSettings.siteName}`,
-    description: frontPage.description ? frontPage.description : siteSettings.description,
+    description: frontPage.description ? frontPage.description : siteSettings.siteDescription,
   }
 }
 

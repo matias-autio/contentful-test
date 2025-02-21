@@ -12,7 +12,7 @@ export async function generateMetadata({ params }) {
 
   return {
     title: `${page.title} - ${siteSettings.siteName}`,
-    description: page.description ? page.description : siteSettings.description,
+    description: page.description ? page.description : siteSettings.siteDescription,
   }
 }
 
