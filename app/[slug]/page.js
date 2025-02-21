@@ -1,13 +1,15 @@
-import { getPageBySlug, getAllPages } from '../../lib/api';
+import { getPageBySlug, getComponentsByIds } from '../../lib/api';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { notFound } from 'next/navigation';
-import Header from '../../components/Header';
+import Components from '@/components/Components';
 
 export default async function Page({ params }) {
-  const { slug } = params;
+  const { slug } = await params;
 
   // Fetch page data based on slug
   const page = await getPageBySlug(slug);
+  const componentIds = page.componentsCollection?.items.map(c => c.sys.id) || [];
+  const components = await getComponentsByIds(componentIds);
 
   // Handle 404 if page doesn't exist
   if (!page) {
@@ -15,14 +17,14 @@ export default async function Page({ params }) {
   }
 
   return (
-    <div>
-      <h1>{page.title}</h1>
-      <article>{documentToReactComponents(page.richText.json)}</article>
+    <div className="container mx-auto">
+      <main className='prose'>
+        <h1>{page.title}</h1>
+      </main>
+      <article className='prose bg-slate-100'>
+        {documentToReactComponents(page.richText.json)}
+        <Components components={components} />
+      </article>
     </div>
   );
-}
-
-export async function generateStaticParams() {
-  const pages = await getAllPages();
-  return pages.map((page) => ({ slug: page.slug }));
 }

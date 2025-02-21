@@ -2,7 +2,9 @@ import Link from 'next/link';
 import { getNavigation } from '../lib/api';
 
 export default async function Navigation({ navigationId }) {
-  if (!navigationId) return null; // Prevent errors if no navigation is linked
+  if (!navigationId) {
+    return null;
+  }
 
   const navigation = await getNavigation(navigationId);
 
