@@ -1,6 +1,7 @@
 import ImageComponent from '@/components/ImageComponent';
 import RichText from '@/components/RichText';
 
+// Render components by their __typename
 export default async function Components({components}) {
 
   if (!components) {

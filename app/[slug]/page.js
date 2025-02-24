@@ -1,9 +1,11 @@
-import { getPageBySlug, getComponentsByIds } from '../../lib/api';
+import getComponentsByIds from '@/lib/api/getComponentsByIds';
+import getPageBySlug from '@/lib/api/getPageBySlug';
+import getSiteSettings from '@/lib/api/getSiteSettings';
+import Components from '@/components/Components';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { notFound } from 'next/navigation';
-import Components from '@/components/Components';
-import getSiteSettings from '@/lib/getSiteSettings';
 
+// Dynamically generate html title and meta description
 export async function generateMetadata({ params }) {
 
   const { slug } = await params;
@@ -16,6 +18,7 @@ export async function generateMetadata({ params }) {
   }
 }
 
+// Get page by slug and display the components
 export default async function Page({ params }) {
   const { slug } = await params;
 

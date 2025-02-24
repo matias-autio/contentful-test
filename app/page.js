@@ -1,9 +1,11 @@
-import { getPageBySlug, getComponentsByIds } from '@/lib/api';
+import getComponentsByIds from '@/lib/api/getComponentsByIds';
+import getPageBySlug from '@/lib/api/getPageBySlug';
+import getSiteSettings from "@/lib/api/getSiteSettings";
+import Components from '@/components/Components';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { notFound } from 'next/navigation';
-import Components from '@/components/Components';
-import getSiteSettings from "@/lib/getSiteSettings";
 
+// Dynamically generate html title and meta description
 export async function generateMetadata() {
 
   const frontPage = await getPageBySlug("/");
@@ -15,10 +17,12 @@ export async function generateMetadata() {
   }
 }
 
+// Get the homepage (page with the slug '/') and display the components
 export default async function Home() {
 
   const frontPage = await getPageBySlug("/");
 
+  // Handle 404 if page with the slug '/' doesn't exist
   if (!frontPage) {
     notFound();
   }

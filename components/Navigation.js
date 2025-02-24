@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { getNavigation } from '@/lib/api';
+import getNavigation from '@/lib/api/getNavigation';
 
+// Render the navigation based on the passed id
 export default async function Navigation({ navigationId }) {
   if (!navigationId) {
     return null;
